@@ -246,28 +246,7 @@ public class CarAnalytics {
                     )
             ));
   }
-
-  /**
-   * Calculate price premium/discount for each color vs overall average
-   */
-  public static Map<String, Double> colorPremiumPercentage(List<CarPricePOJO> cars) {
-    double overallAvg = cars.stream()
-            .mapToInt(CarPricePOJO::getSellingPrice)
-            .average()
-            .orElse(0.0);
-
-    Map<String, Double> avgByColor = cars.stream()
-            .collect(Collectors.groupingBy(
-                    CarPricePOJO::getColor,
-                    Collectors.averagingInt(CarPricePOJO::getSellingPrice)
-            ));
-
-    return avgByColor.entrySet().stream()
-            .collect(Collectors.toMap(
-                    Map.Entry::getKey,
-                    entry -> ((entry.getValue() - overallAvg) / overallAvg) * 100
-            ));
-  }
+  
 
   /**
    * Average markup percentage (above/below MMR) by seller
@@ -283,46 +262,6 @@ public class CarAnalytics {
             ));
   }
 
-  /**
-   * Returns average price and count statistics by transmission type.
-   */
-  public static class TransmissionStats {
-    public double avgPrice;
-    public long count;
-
-    public TransmissionStats(double avgPrice, long count) {
-      this.avgPrice = avgPrice;
-      this.count = count;
-    }
-
-    @Override
-    public String toString() {
-      return String.format("Avg: $%.0f, Count: %d", avgPrice, count);
-    }
-  }
-
-  /**
-   * Returns average price and count statistics by transmission type.
-   */
-  public static Map<String, TransmissionStats> transmissionComparison(List<CarPricePOJO> cars) {
-    Map<String, Double> avgPrice = cars.stream()
-            .collect(Collectors.groupingBy(
-                    CarPricePOJO::getTransmission,
-                    Collectors.averagingInt(CarPricePOJO::getSellingPrice)
-            ));
-
-    Map<String, Long> count = cars.stream()
-            .collect(Collectors.groupingBy(
-                    CarPricePOJO::getTransmission,
-                    Collectors.counting()
-            ));
-
-    return avgPrice.keySet().stream()
-            .collect(Collectors.toMap(
-                    key -> key,
-                    key -> new TransmissionStats(avgPrice.get(key), count.get(key))
-            ));
-  }
 
   /**
    * Returns top N make-models ranked by profitability score combining volume and profit margin.

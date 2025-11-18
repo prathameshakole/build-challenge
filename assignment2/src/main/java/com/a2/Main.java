@@ -170,28 +170,16 @@ public class Main {
     });
     System.out.println();
 
-    System.out.println("17. COLOR PRICE PREMIUM (vs overall average, Top 10)");
-    Map<String, Double> colorPremium = CarAnalytics.colorPremiumPercentage(cars);
-    CarAnalytics.sortByDoubleValueDesc(colorPremium).entrySet().stream()
-            .limit(10)
-            .forEach(e -> System.out.printf("   %-15s -> %+.2f%%%n", e.getKey(), e.getValue()));
-    System.out.println();
 
-    System.out.println("18. SELLER MARKUP PERCENTAGE (vs MMR, Top 10)");
+    System.out.println("17. SELLER MARKUP PERCENTAGE (vs MMR, Top 10)");
     Map<String, Double> sellerMarkup = CarAnalytics.sellerMarkupPercentage(cars);
     CarAnalytics.sortByDoubleValueDesc(sellerMarkup).entrySet().stream()
             .limit(10)
             .forEach(e -> System.out.printf("   %-20s -> %+.2f%%%n", e.getKey(), e.getValue()));
     System.out.println();
 
-    System.out.println("19. TRANSMISSION TYPE COMPARISON");
-    Map<String, CarAnalytics.TransmissionStats> transStats =
-            CarAnalytics.transmissionComparison(cars);
-    transStats.forEach((trans, stats) ->
-            System.out.printf("   %-15s -> %s%n", trans, stats));
-    System.out.println();
 
-    System.out.println("20. INVENTORY PROFITABILITY RANKING (Top 15)");
+    System.out.println("18. INVENTORY PROFITABILITY RANKING (Top 15)");
     List<CarAnalytics.InventoryMetrics> profitable =
             CarAnalytics.inventoryProfitabilityRanking(cars, 15);
     int rank = 1;
@@ -200,7 +188,7 @@ public class Main {
     }
     System.out.println();
 
-    System.out.println("21. MARKET SUMMARY");
+    System.out.println("19. MARKET SUMMARY");
     System.out.printf("   Overall average: %s%n",
             CarAnalytics.formatPrice(CarAnalytics.averageSellingPrice(cars)));
     System.out.println("   Top 5 makes by volume:");

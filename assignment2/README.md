@@ -22,6 +22,12 @@
 7. Compile using `javac *.java`
 8. Run the Demo class using `java Main.java`
 
+Alternatively if the code does not run using this command in your environment.
+
+1. Go to Main.java and change line 15 to 
+`Path csvPath = Path.of("src/java/com/a2/car_prices.csv")`
+2. Go to `/assignment2` and run the command `mvn exec:java -D exec.mainClass="com.a2.Main"`
+
 ---
 
 ## Sample Output
@@ -176,46 +182,29 @@ Examples of Stream operations used:
     * `counting`
     * `averagingInt`
     * `summarizingDouble`
-* `partitioningBy` not needed here but similar patterns are possible
 * `sorted`, `limit` for top N style queries
 ```
 
 ### 4.2 Analytics implemented
 
-- #### Basic Statistics
-
-  1. averageSellingPrice - Overall average selling price across all vehicles 
-  2. averageSellingPriceByMake - Average prices grouped by manufacturer 
-  3. averageSellingPriceByMakeModel - Average prices for specific make-model combinations 
-  4. salesCountByState - Total sales volume by geographic state 
-  5. salesCountByYear - Sales distribution across vehicle model years
-
-- #### Vehicle Characteristics
-
-  6. averageOdometerByMake - Average mileage patterns by manufacturer
-  7. countByBody - Distribution of body styles (Sedan, SUV, etc.)
-  8. transmissionComparison - Price and volume comparison between transmission types
-  9. priceStatsByCondition - Price statistics segmented by vehicle condition rating
-
-- #### Pricing and Value Analysis
-
-  10. priceDeltaStatsByMake - Variance between selling price and market value (MMR) by make
-  11. findBestDeals - Identifies vehicles priced significantly below market value
-  12. colorPremiumPercentage - Price premiums or discounts associated with vehicle colors 
-  13. priceByMileageBracket - Price depreciation patterns across 10k mile brackets
-  14. depreciationRateByMake - Annual depreciation rates by manufacturer
-  15. regionalPriceByModel - Geographic price variations for popular models
-  16. sellerMarkupPercentage - Average markup above or below MMR by seller
-
-- #### Time-Based Trends
-
-  17. averagePriceByYearMonth - Monthly price trends over time (year-month granularity)
-  18. averagePriceByMonth - Seasonal pricing patterns by calendar month
-
-- #### Business Intelligence
-
-  19. topMakeModelsByVolume - Best-selling make-model combinations by sales volume
-  20. inventoryProfitabilityRanking - Models ranked by combined sales volume and profit margins
+1. averageSellingPrice - Overall average selling price across all vehicles 
+2. averageSellingPriceByMake - Average prices grouped by manufacturer 
+3. averageSellingPriceByMakeModel - Average prices for specific make-model combinations 
+4. salesCountByState - Total sales volume by geographic state
+5. averageOdometerByMake - Average mileage patterns by manufacturer 
+6. priceDeltaStatsByMake - Variance between selling price and market value (MMR) by make
+7. salesCountByYear - Total sales volume by year. 
+8. averagePriceByYearMonth - Monthly price trends over time (year-month granularity)
+9. topMakeModelsByVolume - Best-selling make-model combinations by sales volume 
+10. countByBody - Distribution of body styles (Sedan, SUV, etc.)
+11. findBestDeals - Identifies vehicles priced significantly below market value
+12. depreciationRateByMake - Annual depreciation rates by manufacturer
+13. averagePriceByMonth - Seasonal pricing patterns by calendar month
+14. priceByMileageBracket - Price depreciation patterns across 10k mile brackets
+15. priceStatsByCondition - Price statistics segmented by vehicle condition rating
+16. regionalPriceByModel - Geographic price variations for popular models
+17. sellerMarkupPercentage - Average markup above or below MMR by seller
+18. inventoryProfitabilityRanking - Models ranked by combined sales volume and profit margins
 
 ---
 
