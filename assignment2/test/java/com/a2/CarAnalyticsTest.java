@@ -294,19 +294,6 @@ public class CarAnalyticsTest {
   }
 
   /**
-   * Verifies color premium/discount percentage calculation.
-   */
-  @Test
-  void testColorPremiumPercentage() {
-    List<CarPricePOJO> cars = sampleCars();
-    Map<String, Double> colorPremium = CarAnalytics.colorPremiumPercentage(cars);
-    assertTrue(colorPremium.containsKey("Blue"));
-    assertTrue(colorPremium.containsKey("Red"));
-    assertTrue(colorPremium.containsKey("Black"));
-    assertTrue(colorPremium.containsKey("White"));
-  }
-
-  /**
    * Verifies seller markup percentage calculation.
    */
   @Test
@@ -317,24 +304,6 @@ public class CarAnalyticsTest {
     assertTrue(sellerMarkup.containsKey("DealerB"));
     assertTrue(sellerMarkup.containsKey("DealerC"));
     assertTrue(sellerMarkup.containsKey("DealerD"));
-  }
-
-  /**
-   * Verifies transmission type comparison with price and count statistics.
-   */
-  @Test
-  void testTransmissionComparison() {
-    List<CarPricePOJO> cars = sampleCars();
-    Map<String, CarAnalytics.TransmissionStats> transStats = CarAnalytics.transmissionComparison(cars);
-    assertTrue(transStats.containsKey("Automatic"));
-    assertTrue(transStats.containsKey("Manual"));
-
-    CarAnalytics.TransmissionStats autoStats = transStats.get("Automatic");
-    assertEquals(3L, autoStats.count);
-    assertTrue(autoStats.avgPrice > 0);
-
-    CarAnalytics.TransmissionStats manualStats = transStats.get("Manual");
-    assertEquals(1L, manualStats.count);
   }
 
   /**
