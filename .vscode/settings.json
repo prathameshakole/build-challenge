@@ -1,0 +1,13 @@
+{
+    "java.configuration.maven.userSettings": null,
+    "java.import.maven.enabled": true,
+    "java.project.referencedLibraries": [
+        "assignment1/target/**/*.jar",
+        "assignment2/target/**/*.jar"
+    ],
+    "files.exclude": {
+        "**/target": true
+    },
+    "maven.view": "hierarchical"
+}
+

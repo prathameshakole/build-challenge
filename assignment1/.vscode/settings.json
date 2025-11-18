@@ -1,0 +1,14 @@
+{
+    "java.project.sourcePaths": [
+        "src/main/java"
+    ],
+    "java.project.outputPath": "target/classes",
+    "java.project.referencedLibraries": [
+        "target/**/*.jar"
+    ],
+    "java.test.config": {
+        "workingDirectory": "${workspaceFolder}"
+    },
+    "java.configuration.updateBuildConfiguration": "automatic"
+}
+
